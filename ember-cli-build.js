@@ -27,5 +27,8 @@ module.exports = function(defaults) {
   // Emoji data from Twitter's Emoji library
   app.import('bower_components/jquery-emoji-picker/css/jquery.emojipicker.tw.css');
 
+  // jQuery library for managing carets in text inputs/textareas
+  app.import('bower_components/jquery.caret/src/jquery.caret.js');
+
   return app.toTree();
 };
