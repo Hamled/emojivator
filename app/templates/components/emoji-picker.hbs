@@ -1,0 +1,8 @@
+<div class="emoji-picker-selection emojiPicker">
+  <section>
+    {{#each validEmojis as |emoji|}}
+    <div class="emoji emoji-{{emoji.shortcode}}" {{action "selectEmoji" emoji}}></div>
+    {{/each}}
+  </section>
+</div>
+{{input class="emoji-picker-input" type="text" value=input}}
