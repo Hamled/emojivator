@@ -20,5 +20,12 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  // jQuery emoji picker from https://github.com/wedgies/jquery-emoji-picker
+  app.import('bower_components/jquery-emoji-picker/css/jquery.emojipicker.css');
+  app.import('bower_components/jquery-emoji-picker/js/jquery.emojipicker.js');
+
+  // Emoji data from Twitter's Emoji library
+  app.import('bower_components/jquery-emoji-picker/css/jquery.emojipicker.tw.css');
+
   return app.toTree();
 };
