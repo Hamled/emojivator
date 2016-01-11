@@ -133,6 +133,7 @@ String.prototype.splitByCodePoint = function() {
 
 export default Ember.Component.extend({
   emojis: "",
+  input: "",
 
   validEmojis: Ember.computed('emojis', function() {
     var emojis = this.get('emojis').splitByCodePoint();
@@ -145,5 +146,9 @@ export default Ember.Component.extend({
     selectEmoji(emoji) {
       this.$('.emoji-picker-input').caret(getEmojiUnicode(emoji));
     }
+  },
+
+  didInsertElement() {
+    this.set('register-as', this);
   }
 });

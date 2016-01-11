@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  input: "",
   output: "",
   problem: null,
 
@@ -29,7 +28,7 @@ export default Ember.Component.extend({
         return input;
       };
 
-      this.set('output', transform(0, this.get('input')));
+      this.set('output', transform(0, this.get('emojiPicker').get('input')));
     }
   }
 });
