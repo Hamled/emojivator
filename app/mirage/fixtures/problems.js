@@ -1,7 +1,7 @@
 export default [
   {
     validInputs: '🍦🍺🍄',
-    target: '🍦🐋',
+    target: '🍦🐪🐋',
     transforms: [
       ['🍦🍺', '🍄'],
       ['🍺🍦🍄', '🐋'],
