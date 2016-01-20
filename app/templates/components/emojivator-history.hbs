@@ -1,3 +1,13 @@
-{{#each history as |attempt|}}
-  <p class="emojivator-history-attempt">{{attempt.input}} ===> {{attempt.output}}</p>
-{{/each}}
+<p>History Log:</p>
+<table>
+  <tr>
+    <th>Input</th>
+    <th>Output</th>
+  </tr>
+  {{#each history as |entry|}}
+    <tr class="emojivator-history-entry">
+      <td class="emojivator-history-entry-input">{{entry.input}}</td>
+      <td class="emojivator-history-entry-output">{{entry.output}}</td>
+    </tr>
+  {{/each}}
+</table>

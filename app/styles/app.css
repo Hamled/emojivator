@@ -2,3 +2,7 @@
   display: inherit;
   position: inherit;
 }
+
+.emojivator-history-entry td {
+  text-align: center;
+}
