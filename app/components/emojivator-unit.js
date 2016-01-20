@@ -1,7 +1,13 @@
 import Ember from 'ember';
 
+var HistoryEntry = Ember.Object.extend({
+  input: "",
+  output: ""
+});
+
 export default Ember.Component.extend({
   output: "",
+  history: [],
   problem: null,
 
   actions: {
@@ -28,7 +34,14 @@ export default Ember.Component.extend({
         return input;
       };
 
-      this.set('output', transform(0, this.get('emojiPicker').get('input')));
+      var input = this.get('emojiPicker').get('input');
+      var output = transform(0, input);
+
+      this.set('output', output);
+      this.get('history').unshiftObject(HistoryEntry.create({
+        input: input,
+        output: output
+      }));
     }
   }
 });
