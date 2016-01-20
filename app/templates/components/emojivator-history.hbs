@@ -4,7 +4,11 @@
     <th>Input</th>
     <th>Output</th>
   </tr>
-  {{#each history as |entry|}}
+  <tr>
+    <td>Filter: {{input class="emojivator-history-input-filter" type="text" value=inputFilter}}</td>
+    <td>Filter: {{input class="emojivator-history-output-filter" type="text" value=outputFilter}}</td>
+  </tr>
+  {{#each filteredHistory as |entry|}}
     <tr class="emojivator-history-entry">
       <td class="emojivator-history-entry-input">{{entry.input}}</td>
       <td class="emojivator-history-entry-output">{{entry.output}}</td>
