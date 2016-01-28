@@ -42,6 +42,9 @@ export default Ember.Component.extend({
         input: input,
         output: output
       }));
+
+      // Add any new emojis from the output into the picker
+      this.get('emojiPicker').addEmojis(output);
     }
   }
 });

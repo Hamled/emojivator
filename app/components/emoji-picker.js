@@ -142,6 +142,23 @@ export default Ember.Component.extend({
     });
   }),
 
+  addEmojis(emojis) {
+    var validCodePoints = this.get('validEmojis').map(function(emoji) {
+      return parseInt(emoji["unicode"], 16);
+    });
+    var newEmojis = "";
+
+    emojis.splitByCodePoint().forEach(function(codePoint) {
+      if(!validCodePoints.contains(codePoint)) {
+        newEmojis += String.fromCodePoint(codePoint);
+      }
+    });
+
+    if(newEmojis.length > 0) {
+      this.set('emojis', this.get('emojis') + newEmojis);
+    }
+  },
+
   actions: {
     selectEmoji(emoji) {
       this.$('.emoji-picker-input').caret(getEmojiUnicode(emoji));
