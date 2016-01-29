@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
   actions: {
     transformInput() {
-      var transforms = this.get('problem').get('transforms').map(function(transform) {
+      var transforms = this.get('problem').get('emojivator').get('transforms').map(function(transform) {
         var [pattern, replacement] = transform;
         return [new RegExp(pattern), replacement];
       });
