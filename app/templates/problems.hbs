@@ -1,3 +1,15 @@
-{{#each model as |problem|}}
-  {{emojivator-unit problem=problem}}
-{{/each}}
+<div id="emojivator-problem">
+  {{partial 'texts/intro-1'}}
+  {{#each model as |problem|}}
+    {{partial problem.introTemplate}}
+    {{partial problem.questionTemplate}}
+    {{emojivator-unit problem=problem}}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  {{/each}}
+</div>
