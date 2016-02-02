@@ -10,7 +10,22 @@ export default Ember.Route.extend({
       var route = this;
 
       this.get("session").open("firebase", { provider: provider }).then(function(data) {
-        console.log(data.currentUser);
+        var user = route.store.findRecord('user', data.uid);
+        if (!user) {
+          var firstProblem = route.store.findRecord('problem', {
+            orderBy: 'sortId',
+            limitToFirst: 1
+          });
+          var newUser = route.store.createRecord('user', {
+            currentProblem: firstProblem,
+            emojiMap: route.modelFor('user').buildEmojiMap(),
+            history: []
+          });
+          newUser.save();
+          user = newUser;
+        }
+
+        this.set("user", user);
         route.transitionTo('problems');
       }, function(error) {
         console.log(error);
