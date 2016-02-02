@@ -1,3 +1,12 @@
-<h2 id="title">Emojivator Problems</h2>
-
-{{outlet}}
+<h2 id="title">Ada Developers Academy - Emojivator</h2>
+{{#if session.isWorking}}
+  Logging in...
+{{else if session.isAuthenticated}}
+  Currently signed in as: {{session.currentUser.displayName}}
+  <button {{action "signOut"}}>Sign Out</button>
+  {{outlet}}
+{{else}}
+  {{error}}
+  You must first sign in with GitHub to work on Emojivator questions.
+  <button {{action "signIn" "github"}}>Sign in with GitHub now</button>
+{{/if}}
